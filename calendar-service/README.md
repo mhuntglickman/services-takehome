@@ -1,7 +1,7 @@
 [< Back to Assignment](../README.md)
 
 ## Calendar (Node / Express)
-This service contains information about a users upcomming meetings.
+This service contains information about a users upcoming meetings.
  
 ### Events Endpoint
 
