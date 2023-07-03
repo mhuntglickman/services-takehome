@@ -1,6 +1,7 @@
 [< Back to Assignment](../README.md)
 
 ## Users (Ruby on Rails)
+This service stores information about a user.
 
 ### Users Endpoint
 
