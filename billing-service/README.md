@@ -1,7 +1,7 @@
 [< Back to Assignment](../README.md)
 
 ## Billing (Python / Falcon)
-This service stores information about a user's subscription
+This service stores information about a user's subscription.
 
 ### Subscription Endpoint
 
