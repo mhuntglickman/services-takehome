@@ -1,8 +1,8 @@
 # Engineering Take Home Exercise
 
-Welcome to the Calendly Take Home assignment that focuses on Service Oriented Architectures (SOA).
+Welcome to the Calendly Take Home assignment! This execise will focus on a Service Oriented Architecture (SOA) exercise.
 
-You'll be asked to interract with a collection of docker containers that are able to communicate with each other. First you'll create a dashboard API that aggregates information from each service. Secondly, you'll update one of the services to improve the functionality of the system as a whole. The pull request you create will be submitted to the engineers that make up your technical interview panel. During the interview you'll be asked to describe your approach and discuss other changes or additions you could make to the applications.
+You'll be asked to interact with a collection of docker containers that are able to communicate with each other. First, you'll create a dashboard API that aggregates information from each service. Second, you'll update one of the services to improve the functionality of the system as a whole. Finally, you'll incorporate the improved functionality back into the dashboard API. When you're done, you'll submit your work as a pull request, which will be submitted to the engineers that make up your technical interview panel. During the interview you'll be asked to describe your approach and discuss other changes or additions you could make to the system.
 
 # Getting Started
 
@@ -26,7 +26,7 @@ Access the "Summary Dashboard" by visiting this URL in a browser:
 
 # Assignment
 
-You'll receive this repo as a fork in GitHub. As you work through the assignment we ask that you follow a similar process to how you normally interact with GitHub. At the bare minimum we expect three commits (one for each part) so that reviewers can see your progress. Feel free to include additional commits, comments, and even unit tests to reflect how you would approach your day to day work.
+You'll receive this repo as a fork in GitHub. As you work through the assignment we ask that you follow a similar process to how you normally interact with GitHub. At the bare minimum we expect three commits (one for each part) so that reviewers can see your progress. Feel free to include additional commits, comments, and unit tests to reflect how you would approach your day to day work.
 
 ## Part 1 - Create a Dashboard API Endpoint
 
@@ -43,7 +43,7 @@ In addition to building the API please document your new endpoint in the README 
 
 ## Part 2 - Update an Existing Service
 
-Choose one of the existing services to add some functionality. Pick whichever language you're most comfortable with,n ow is not the time for heroics. Our team is ready and willing to discuss solutions in any of the services.
+Choose one of the existing services to and add the functionality described below. Pick whichever language you're most comfortable with - now is not the time for heroics. Our team is ready and willing to discuss solutions in any of the services.
 
 > **Note:** Depending on how you add your new endpoint you may need to update the nginx.conf to make it accessible to the host system.
 
@@ -57,11 +57,11 @@ Update the User Service to have a new endpoint for admins that returns a list of
 
 ### Node Assignment
 
-Update the Calendar Service to have a new endpoint that accepts a start and end date as url paramters and filters events to be inclusive of the two dates.
+Update the Calendar Service to have a new endpoint that accepts a start and end date as url parameters and filters events to be inclusive of the two dates.
 
 ## Part 3 - Update the Dahsboard API
 
-Include your new feature in the response for the Dashboard API
+Include your new feature in the response for the Dashboard API.
 
 ## Final Submission
 
