@@ -26,8 +26,8 @@ This service contains information about a users upcoming meetings.
 {
     "events":
         [
-            {"id": 1, "duration": 30, "attendees": 2, "date": "MM/DD/YYY"},
-            {"id": 2, "duration": 60, "attendees": 5, "date": "MM/DD/YYY"},
+            {"id": 1, "name": "1on1", "duration": 30, "attendees": 2, "date": "MM/DD/YYY"},
+            {"id": 2, "name": "hangout", "duration": 60, "attendees": 5, "date": "MM/DD/YYY"},
             ...
         ]
 }
