@@ -28,24 +28,28 @@ app.get("/events", (req, res) => {
     events: [
       {
         id: 1,
+        name: "Hangout",
         duration: 30,
         date: someDaysAgo(3).toLocaleDateString('en-US'),
         attendees: 2
       },
       {
         id: 2,
+        name: "Pre-Screen",
         duration: 60,
         date: someDaysAgo(5).toLocaleDateString('en-US'),
         attendees: 3
       },
       {
         id: 3,
+        name: "Group Interview",
         duration: 120,
         date: someDaysAgo(4).toLocaleDateString('en-US'),
         attendees: 3
       },
       {
         id: 4,
+        name: "1on1",
         duration: 60,
         date: someDaysBeyond(4).toLocaleDateString('en-US'),
         attendees: 2
