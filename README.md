@@ -8,7 +8,7 @@ You'll be asked to interact with a collection of docker containers that are able
 
 Clone a copy of this repo locally and run the following command from the project root:
 ```sh
-docker compose up
+docker compose up --build
 ```
 
 Access the "Summary Dashboard" by visiting this URL in a browser: 
