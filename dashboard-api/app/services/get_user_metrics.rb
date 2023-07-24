@@ -15,7 +15,7 @@ require 'json'
 #   >>:{:user_info=>
 #                 {:id=>1, :first_name=>"Michael", :last_name=>"Scott"},
 #       :subscription=>
-#                 {:cost=>15.0, :days_to_renew=>30},
+#                 {:price_cents=>1500, :days_to_renew=>30},
 #       :events=>
 #                 {:meeting_count=>3,
 #                  :next_meeting=>
@@ -42,17 +42,22 @@ class GetUserMetrics
     subscription = GetUserSubscription.new(@user_id).call
     return subscription if errors?(subscription)
 
-    response(events, subscription, user)
+    users_summary = GetUsersSummary.new(@user_id).call
+    users_summary = nil if errors?(users_summary) && users_summary[:error_code] == 401
+
+    response(events, subscription, user, users_summary)
   end
 
   private
 
-  def response(events, subscription, user)
+  def response(events, subscription, user, users_summary)
     {
       user: user,
       subscription: subscription,
       events: events
-    }
+    }.tap do |r|
+      r[:users_summary] = users_summary[:users] if users_summary
+    end
   end
 
   def errors?(response)

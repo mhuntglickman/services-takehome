@@ -26,9 +26,8 @@ require 'json'
 #   GetUserEvents.new(10).call
 #   >>: {:error_code=> 404, :message=> "Not Found"}
 #
-
 class GetUserEvents
-  EVENT_SERVICE = 'http://calendar-service:8000/events?user_id='
+  EVENT_SERVICE = 'http://calendar-service:8000/events?user_id='.freeze
 
   def initialize(user_id)
     @user_id = user_id
@@ -50,16 +49,16 @@ class GetUserEvents
   private
 
   def errors
-    if @events.code == 404
+    if @events.code.to_i == 404
       {}
     else
-      { error_code: @events.code,
+      { error_code: @events.code.to_i,
         message: @events.message }.transform_keys(&:to_sym)
     end
   end
 
   def response
-    @events = format_response_body
+    format_response_body
     format_dates
     generate_response
   end
@@ -81,6 +80,6 @@ class GetUserEvents
   end
 
   def format_response_body
-    JSON.parse(@events.body, symbolize_names: true).fetch(:events, [])
+    @events = JSON.parse(@events.body, symbolize_names: true).fetch(:events, [])
   end
 end

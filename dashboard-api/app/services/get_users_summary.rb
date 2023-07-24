@@ -3,7 +3,7 @@
 require 'net/http'
 require 'json'
 
-# Class: GetUsersIndex
+# Class: GetUsersSummary
 # A utility class used to retrieve all users information and position titles
 # from the User Service.
 #
@@ -11,7 +11,7 @@ require 'json'
 # message string containing the response code and message.
 #
 # Success Example:
-#   @users = GetUsersIndex.new.call
+#   @users = GetUsersSummary.new.call
 #   >>: { "users":
 #             [
 #               {"first_name":"Michael","last_name":"Scott","position":"Regional Manager"},
@@ -19,18 +19,21 @@ require 'json'
 #              ]
 #        }
 # Failure Example:
-#   @users = GetUsersIndex.new.call
+#   @users = GetUsersSummary.new(1).call
 #   >>: {:error_code=> 404, :message=> "Not Found"}
 #
 #
-class GetUsersIndex
-  USER_SERVICE = 'http://user-service:8000/users/'.freeze
-  attr_accessor :users
+class GetUsersSummary
+  USER_SERVICE = 'http://user-service:8000/users/summary/'.freeze
+
+  def initialize(user_id)
+    @user_id = user_id
+  end
 
   def call
     return @response if @response
 
-    uri = URI("#{USER_SERVICE}")
+    uri = URI("#{USER_SERVICE}#{@user_id}")
     @users = Net::HTTP.get_response(uri)
     @response = if @users.is_a?(Net::HTTPSuccess)
                   format_response
@@ -42,12 +45,11 @@ class GetUsersIndex
   private
 
   def errors
-    { error_code: @users.code,
+    { error_code: @users.code.to_i,
       message: @users.message }.transform_keys(&:to_sym)
   end
 
   def format_response
     @users = JSON.parse(@users.body, symbolize_names: true)
   end
-
 end

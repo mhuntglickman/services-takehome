@@ -38,26 +38,29 @@ This service stores information about a user.
 | 200         | OK               |
 | 404         | Record not Found |
 
-**Host Endpoint:** `http://localhost:8000/users/`
 
-**Docker Network Endpoint:** `http://user-service:8000/users/`
+### Users Summary Endpoint for Admin users
+
+**Host Endpoint:** `http://localhost:8000/users/summary/<id>`
+
+**Docker Network Endpoint:** `http://user-service:8000/users/summary/<id>`
 
 **Method:** GET
 
-**Description:** ADMIN ONLY Retrieve an array of user details records including names and job titles.
+**Description:** ADMIN accounts retrieve an array of user details records including names and job titles.
 
 ### Example Responses
 
 **Success**
 ```json
-{ "users":
-        [
-          { "id":1,
-            "first_name": <string>,
-            "last_name": <string>,
-            "position": <string>}
-          },
-        ]
+{
+  "users": [
+    {
+      "first_name": <string>,
+      "last_name": <string>,
+      "position": <string>
+    }
+  ]
 }
 ```
 
@@ -71,6 +74,7 @@ This service stores information about a user.
 ### Response Codes
 
 | Status Code | Description      |
-| ----------- | ---------------- |
+|-------------|------------------|
 | 200         | OK               |
+| 401         | Not authorized   |
 | 404         | Record not Found |

@@ -11,33 +11,65 @@ This service returns summary metric information about a user.
 
 **Method:** GET
 
-**Description:** Retrieve a users summary metric record.
+**Description:** Retrieve a users summary of key metrics.
 
 ### Example Responses
 
-**Success**
+**Success NON ADMIN**
 ```json
 {
-  "user": {
-    "full_name": <string>
-  },
-  "subscription": {
-    "cost": <float>,
-    "days_to_renew": <int>
-  },
-  "events": {
-    "meeting_count": <int>,
-    "next_meeting": {
-      "id": <int>,
-      "name": <int>,
-      "duration": <int>,
-      "date": <string>,
-      "attendees": <int>
+  "summary": {
+    "user": {
+      "full_name": <string>
+    },
+    "subscription": {
+      "price_cents": <int>,
+      "days_to_renew": <int>
+    },
+    "events": {
+      "meeting_count": <int>,
+      "next_meeting": {
+        "id": <int>,
+        "name": <int>,
+        "duration": <int>,
+        "date": <string>,
+        "attendees": <int>
+      }
     }
   }
 }
 ```
-
+**Success ADMIN**
+```json
+{
+  "summary": {
+    "user": {
+      "full_name": <string>
+    },
+    "subscription": {
+      "price_cents": <int>,
+      "days_to_renew": <int>
+    },
+    "events": {
+      "meeting_count": <int>,
+      "next_meeting": {
+        "id": <int>,
+        "name": <int>,
+        "duration": <int>,
+        "date": <string>,
+        "attendees": <int>
+      }
+    },
+    "users_summary": [
+      {
+        "first_name": <string>,
+        "last_name": <string>,
+        "position": <string>
+      }
+    ]
+  }
+}
+```
 **Error**
 ```json
 {

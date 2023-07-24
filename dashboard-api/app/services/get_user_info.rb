@@ -19,7 +19,7 @@ require 'json'
 #   >>: {:error_code=> 404, :message=> "Not Found"}
 #
 class GetUserInfo
-  USER_SERVICE = 'http://user-service:8000/users/'
+  USER_SERVICE = 'http://user-service:8000/users/'.freeze
 
   def initialize(user_id)
     @user_id = user_id
@@ -41,7 +41,7 @@ class GetUserInfo
   private
 
   def errors
-    { error_code: @user.code,
+    { error_code: @user.code.to_i,
       message: @user.message }.transform_keys(&:to_sym)
   end
 
