@@ -26,6 +26,7 @@ require 'json'
 #   GetUserEvents.new(10).call
 #   >>: {:error_code=> 404, :message=> "Not Found"}
 #
+
 class GetUserEvents
   EVENT_SERVICE = 'http://calendar-service:8000/events?user_id='
 
